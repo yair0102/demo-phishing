@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <a href="index.html"
+</a>
+  <meta charset="utf-8">
+  <title>Login - Simulación Anti-Phishing</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f2f5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+    .login-box {
+      background: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      width: 350px;
+      text-align: center;
+    }
+    .login-box h2 {
+      margin-bottom: 20px;
+      color: #333;
+    }
+    input {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+    }
+    button {
+      width: 100%;
+      padding: 12px;
+      margin-top: 10px;
+      border-radius: 6px;
+      border: none;
+      background: #1877f2;
+      color: white;
+      font-size: 15px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #0f5dc6;
+    }
+    .warning {
+      background: #fff3cd;
+      border-left: 5px solid #ffc107;
+      padding: 10px;
+      font-size: 13px;
+      text-align: left;
+      margin-bottom: 15px;
+      border-radius: 6px;
+    }
+    .consent {
+      display: flex;
+      align-items: center;
+      font-size: 13px;
+      color: #333;
+      margin-top: 5px;
+      text-align: left;
+    }
+    .footer {
+      margin-top: 15px;
+      font-size: 12px;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-box">
+    <h2>Iniciar sesión</h2>
+
+    <div class="warning">
+      ⚠ <strong>Aviso:</strong> Esta es una simulación educativa de phishing.<br>
+      No introduzcas tu contraseña real. Usa datos de ejemplo. 
+    </div>
+
+    <form id="phishForm">
+      <input type="text" id="usuario" placeholder="Correo electrónico o usuario" required>
+      <input type="password" id="contrasena" placeholder="Contraseña" required>
+
+      <label class="consent">
+        <input type="checkbox" id="consentCheckbox">
+        Acepto que estos datos se usen solo en la demo (consentimiento)
+      </label>
+
+      <button type="submit">Entrar</button>
+    </form>
+
+    <div class="footer">
+      Esta simulación demuestra cómo operan los ataques de phishing.<br>
+      <em>(Tus datos no serán almacenados ni enviados sin consentimiento).</em>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("phishForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const usuario = document.getElementById("usuario").value;
+      const contrasena = document.getElementById("contrasena").value;
+      const consent = document.getElementById("consentCheckbox").checked;
+
+      if (!consent) {
+        alert("❌ Debes marcar la casilla de consentimiento. Así evitamos un uso indebido.");
+        return;
+      }
+
+      alert("✅ Datos enviados para la DEMO:\n\nUsuario: " + usuario +
+            "\nContraseña (ejemplo, no se guarda)\n\nEn un ataque real, esto se mandaría a un atacante.");
+    });
+  </script>
+</body>
+</html>
